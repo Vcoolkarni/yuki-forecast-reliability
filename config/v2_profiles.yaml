@@ -1,0 +1,40 @@
+version: v2_acquisition_profiles
+# Offline planning only. This file does not activate or download any product.
+requested_period: {start_date: '2020-06-01', end_date: '2025-09-30', months: [6, 7, 8, 9]}
+periods:
+  train: {start_date: '2020-06-01', end_date: '2023-09-30'}
+  validation: {start_date: '2024-06-01', end_date: '2024-09-30'}
+  test: {start_date: '2025-06-01', end_date: '2025-09-30'}
+# Conservative coverage for the selected AWS 0.25-degree paths, based on
+# metadata-only spot checks. Samples are not a guarantee of every object.
+availability:
+  gfs_0p25: {start_date: '2021-06-01', end_date: '2025-09-30'}
+  # The first 2020-09-30 sample exists; earlier 2020 coverage is unverified.
+  gefs_member_0p25: {start_date: '2020-09-30', end_date: '2025-09-30'}
+  gefs_mean_spread_0p25: {start_date: '2020-09-30', end_date: '2025-09-30'}
+  era5_hourly: {start_date: '2020-06-01', end_date: '2025-10-10'}
+sampling_frequencies_days: [1, 2, 3]
+gfs:
+  instantaneous_predictors_per_lead: 13
+  precipitation_interval_hours: 6
+  # A GFS day requires four 6-hour APCP intervals, not a single cumulative field.
+  precipitation_intervals_per_lead: 4
+gefs:
+  precipitation_interval_hours: 6
+  full_members: 31
+  published_statistics: [mean, spread]
+estimation:
+  # GFS: median of existing local V1 message caches when available.
+  fallback_gfs_message_mib: 0.807
+  # GEFS: conservative upper planning size after 2021/2022/2025 .idx offsets
+  # showed 0.24-0.41 MiB for sampled APCP messages.
+  gefs_precipitation_message_mib: 0.45
+  era5_month_mib: 150.0
+  intermediate_copies: 2
+  intermediate_bytes_per_row: {LIGHT: 160, BALANCED: 184, FULL: 240}
+  # Approximate post-extraction land+halo retention; not used to size downloads.
+  india_land_plus_halo_fraction: 0.40
+profiles:
+  LIGHT: {gefs_mode: none}
+  BALANCED: {gefs_mode: published_6h_mean_spread}
+  FULL: {gefs_mode: all_31_members}

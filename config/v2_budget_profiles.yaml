@@ -1,0 +1,68 @@
+version: v2_budget_profiles
+# Planning only. This does not alter the active V2 acquisition configuration.
+hard_download_cap_gib: 8.0
+period:
+  start_date: '2021-06-01'
+  end_date: '2025-09-30'
+  months: [6, 7, 8, 9]
+  train: {start_date: '2021-06-01', end_date: '2023-09-30'}
+  validation: {start_date: '2024-06-01', end_date: '2024-09-30'}
+  test: {start_date: '2025-06-01', end_date: '2025-09-30'}
+grid:
+  gfs_gefs_resolution_degrees: 0.5
+  era5_native_resolution_degrees: 0.25
+  # Retain the full India planning rectangle and calculate spatial features
+  # before applying any land/state mask.
+  south: 6.0
+  north: 37.0
+  west: 68.0
+  east: 98.0
+gfs:
+  product: pgrb2.0p50
+  precipitation_intervals_per_lead: 4
+  instantaneous_predictors:
+    - temperature_2m
+    - relative_humidity_2m
+    - mean_sea_level_pressure
+    - u_wind_10m
+    - v_wind_10m
+    - precipitable_water
+    - cape_surface
+  # Sampled public .idx maxima in MiB across 2021/2022/2024 and f006/f024/f120/f240.
+  observed_max_message_mib:
+    precipitation: 0.115
+    temperature_2m: 0.249
+    relative_humidity_2m: 0.231
+    mean_sea_level_pressure: 0.284
+    u_wind_10m: 0.274
+    v_wind_10m: 0.271
+    precipitable_water: 0.343
+    cape_surface: 0.164
+gefs:
+  product: pgrb2a.0p50
+  directory: pgrb2ap5
+  observed_max_message_mib: {mean: 0.094, spread: 0.128}
+era5:
+  # Native 0.25-degree India rectangle: a 31-day hourly float32 month is
+  # about 43 MiB before format overhead; allow 64 MiB per month.
+  estimate_mib_per_month: 64.0
+estimation:
+  observed_message_padding_factor: 1.25
+  intermediate_copies: 2
+  intermediate_bytes_per_row: {ULTRALIGHT: 144, RECOMMENDED: 168, MAX: 184}
+profiles:
+  ULTRALIGHT:
+    target_download_gib: 5.0
+    cadence_days: 6
+    max_initializations_per_year: 21
+    gefs_mode: end_window_mean_spread
+  RECOMMENDED:
+    target_download_gib: 8.0
+    cadence_days: 3
+    max_initializations_per_year: 35
+    gefs_mode: daily_mean_end_window_spread
+  MAX:
+    target_download_gib: 10.0
+    cadence_days: 3
+    max_initializations_per_year: 41
+    gefs_mode: all_interval_mean_spread

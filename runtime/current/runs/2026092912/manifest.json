@@ -1,0 +1,1485 @@
+{
+  "run_id": "2026092912",
+  "run_kind": "current_forecast",
+  "status": "complete",
+  "initialization_utc": "2026-09-29T12:00:00Z",
+  "acquired_at_utc": "2026-09-29T18:24:10.752177Z",
+  "valid_start_utc": "2026-09-30T12:00:00Z",
+  "valid_end_utc": "2026-10-09T12:00:00Z",
+  "discovery": {
+    "discovered_at_utc": "2026-09-29T18:18:21.577822Z",
+    "selected_initialization_utc": "2026-09-29T12:00:00Z",
+    "fallback_required": true,
+    "fallback_reason": "404 Client Error: Not Found for url: https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/18/atmos/gfs.t18z.pgrb2.0p50.f240.idx",
+    "candidates": [
+      {
+        "initialization_utc": "2026-09-29T18:00:00Z",
+        "complete": false,
+        "checked_messages": 0,
+        "required_messages": 160,
+        "failure_type": "HTTPError",
+        "failure": "404 Client Error: Not Found for url: https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/18/atmos/gfs.t18z.pgrb2.0p50.f240.idx",
+        "failed_source": "gfs",
+        "failed_forecast_hour": 240,
+        "failed_variable": "precipitation"
+      },
+      {
+        "initialization_utc": "2026-09-29T12:00:00Z",
+        "complete": true,
+        "checked_messages": 160,
+        "required_messages": 160
+      }
+    ]
+  },
+  "source_products": {
+    "gfs": "pgrb2.0p50",
+    "gefs": "pgrb2a.0p50",
+    "gefs_directory": "pgrb2ap5"
+  },
+  "source_urls": [
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f006",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f012",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f018",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f024",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f030",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f036",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f042",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f048",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f054",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f060",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f066",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f072",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f078",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f084",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f090",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f096",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f102",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f108",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f114",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f120",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f126",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f132",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f138",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f144",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f150",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f156",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f162",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f168",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f174",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f180",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f186",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f192",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f198",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f204",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f210",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f216",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f222",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f228",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f234",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/geavg.t12z.pgrb2a.0p50.f240",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f024",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f048",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f072",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f096",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f120",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f144",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f168",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f192",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f216",
+    "https://noaa-gefs-pds.s3.amazonaws.com/gefs.20260929/12/atmos/pgrb2ap5/gespr.t12z.pgrb2a.0p50.f240",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f006",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f012",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f018",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f024",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f030",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f036",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f042",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f048",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f054",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f060",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f066",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f072",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f078",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f084",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f090",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f096",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f102",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f108",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f114",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f120",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f126",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f132",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f138",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f144",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f150",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f156",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f162",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f168",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f174",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f180",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f186",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f192",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f198",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f204",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f210",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f216",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f222",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f228",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f234",
+    "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260929/12/atmos/gfs.t12z.pgrb2.0p50.f240"
+  ],
+  "component_hours": {
+    "1": {
+      "gfs_apcp_component_forecast_hours": [
+        6,
+        12,
+        18,
+        24
+      ],
+      "gefs_mean_component_forecast_hours": [
+        6,
+        12,
+        18,
+        24
+      ],
+      "gefs_spread_component_forecast_hours": [
+        24
+      ],
+      "verification_start_exclusive": "2026-09-29T12:00:00+00:00",
+      "verification_end_inclusive": "2026-09-30T12:00:00+00:00"
+    },
+    "2": {
+      "gfs_apcp_component_forecast_hours": [
+        30,
+        36,
+        42,
+        48
+      ],
+      "gefs_mean_component_forecast_hours": [
+        30,
+        36,
+        42,
+        48
+      ],
+      "gefs_spread_component_forecast_hours": [
+        48
+      ],
+      "verification_start_exclusive": "2026-09-30T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-01T12:00:00+00:00"
+    },
+    "3": {
+      "gfs_apcp_component_forecast_hours": [
+        54,
+        60,
+        66,
+        72
+      ],
+      "gefs_mean_component_forecast_hours": [
+        54,
+        60,
+        66,
+        72
+      ],
+      "gefs_spread_component_forecast_hours": [
+        72
+      ],
+      "verification_start_exclusive": "2026-10-01T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-02T12:00:00+00:00"
+    },
+    "4": {
+      "gfs_apcp_component_forecast_hours": [
+        78,
+        84,
+        90,
+        96
+      ],
+      "gefs_mean_component_forecast_hours": [
+        78,
+        84,
+        90,
+        96
+      ],
+      "gefs_spread_component_forecast_hours": [
+        96
+      ],
+      "verification_start_exclusive": "2026-10-02T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-03T12:00:00+00:00"
+    },
+    "5": {
+      "gfs_apcp_component_forecast_hours": [
+        102,
+        108,
+        114,
+        120
+      ],
+      "gefs_mean_component_forecast_hours": [
+        102,
+        108,
+        114,
+        120
+      ],
+      "gefs_spread_component_forecast_hours": [
+        120
+      ],
+      "verification_start_exclusive": "2026-10-03T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-04T12:00:00+00:00"
+    },
+    "6": {
+      "gfs_apcp_component_forecast_hours": [
+        126,
+        132,
+        138,
+        144
+      ],
+      "gefs_mean_component_forecast_hours": [
+        126,
+        132,
+        138,
+        144
+      ],
+      "gefs_spread_component_forecast_hours": [
+        144
+      ],
+      "verification_start_exclusive": "2026-10-04T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-05T12:00:00+00:00"
+    },
+    "7": {
+      "gfs_apcp_component_forecast_hours": [
+        150,
+        156,
+        162,
+        168
+      ],
+      "gefs_mean_component_forecast_hours": [
+        150,
+        156,
+        162,
+        168
+      ],
+      "gefs_spread_component_forecast_hours": [
+        168
+      ],
+      "verification_start_exclusive": "2026-10-05T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-06T12:00:00+00:00"
+    },
+    "8": {
+      "gfs_apcp_component_forecast_hours": [
+        174,
+        180,
+        186,
+        192
+      ],
+      "gefs_mean_component_forecast_hours": [
+        174,
+        180,
+        186,
+        192
+      ],
+      "gefs_spread_component_forecast_hours": [
+        192
+      ],
+      "verification_start_exclusive": "2026-10-06T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-07T12:00:00+00:00"
+    },
+    "9": {
+      "gfs_apcp_component_forecast_hours": [
+        198,
+        204,
+        210,
+        216
+      ],
+      "gefs_mean_component_forecast_hours": [
+        198,
+        204,
+        210,
+        216
+      ],
+      "gefs_spread_component_forecast_hours": [
+        216
+      ],
+      "verification_start_exclusive": "2026-10-07T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-08T12:00:00+00:00"
+    },
+    "10": {
+      "gfs_apcp_component_forecast_hours": [
+        222,
+        228,
+        234,
+        240
+      ],
+      "gefs_mean_component_forecast_hours": [
+        222,
+        228,
+        234,
+        240
+      ],
+      "gefs_spread_component_forecast_hours": [
+        240
+      ],
+      "verification_start_exclusive": "2026-10-08T12:00:00+00:00",
+      "verification_end_inclusive": "2026-10-09T12:00:00+00:00"
+    }
+  },
+  "message_provenance": [
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 6,
+      "accumulation_start_hour": 0,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f006.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 12,
+      "accumulation_start_hour": 6,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f012.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 18,
+      "accumulation_start_hour": 12,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f018.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 24,
+      "accumulation_start_hour": 18,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 24,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f024.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 6,
+      "accumulation_start_hour": 0,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f006.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 12,
+      "accumulation_start_hour": 6,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f012.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 18,
+      "accumulation_start_hour": 12,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f018.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 24,
+      "accumulation_start_hour": 18,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f024.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 24,
+      "accumulation_start_hour": 18,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f024.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 30,
+      "accumulation_start_hour": 24,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f030.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 36,
+      "accumulation_start_hour": 30,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f036.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 42,
+      "accumulation_start_hour": 36,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f042.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 48,
+      "accumulation_start_hour": 42,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 48,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f048.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 30,
+      "accumulation_start_hour": 24,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f030.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 36,
+      "accumulation_start_hour": 30,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f036.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 42,
+      "accumulation_start_hour": 36,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f042.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 48,
+      "accumulation_start_hour": 42,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f048.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 48,
+      "accumulation_start_hour": 42,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f048.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 54,
+      "accumulation_start_hour": 48,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f054.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 60,
+      "accumulation_start_hour": 54,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f060.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 66,
+      "accumulation_start_hour": 60,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f066.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 72,
+      "accumulation_start_hour": 66,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 72,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f072.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 54,
+      "accumulation_start_hour": 48,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f054.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 60,
+      "accumulation_start_hour": 54,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f060.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 66,
+      "accumulation_start_hour": 60,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f066.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 72,
+      "accumulation_start_hour": 66,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f072.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 72,
+      "accumulation_start_hour": 66,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f072.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 78,
+      "accumulation_start_hour": 72,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f078.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 84,
+      "accumulation_start_hour": 78,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f084.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 90,
+      "accumulation_start_hour": 84,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f090.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 96,
+      "accumulation_start_hour": 90,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 96,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f096.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 78,
+      "accumulation_start_hour": 72,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f078.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 84,
+      "accumulation_start_hour": 78,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f084.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 90,
+      "accumulation_start_hour": 84,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f090.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 96,
+      "accumulation_start_hour": 90,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f096.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 96,
+      "accumulation_start_hour": 90,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f096.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 102,
+      "accumulation_start_hour": 96,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f102.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 108,
+      "accumulation_start_hour": 102,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f108.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 114,
+      "accumulation_start_hour": 108,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f114.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 120,
+      "accumulation_start_hour": 114,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 120,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f120.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 102,
+      "accumulation_start_hour": 96,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f102.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 108,
+      "accumulation_start_hour": 102,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f108.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 114,
+      "accumulation_start_hour": 108,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f114.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 120,
+      "accumulation_start_hour": 114,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f120.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 120,
+      "accumulation_start_hour": 114,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f120.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 126,
+      "accumulation_start_hour": 120,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f126.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 132,
+      "accumulation_start_hour": 126,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f132.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 138,
+      "accumulation_start_hour": 132,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f138.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 144,
+      "accumulation_start_hour": 138,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 144,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f144.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 126,
+      "accumulation_start_hour": 120,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f126.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 132,
+      "accumulation_start_hour": 126,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f132.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 138,
+      "accumulation_start_hour": 132,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f138.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 144,
+      "accumulation_start_hour": 138,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f144.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 144,
+      "accumulation_start_hour": 138,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f144.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 150,
+      "accumulation_start_hour": 144,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f150.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 156,
+      "accumulation_start_hour": 150,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f156.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 162,
+      "accumulation_start_hour": 156,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f162.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 168,
+      "accumulation_start_hour": 162,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 168,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f168.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 150,
+      "accumulation_start_hour": 144,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f150.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 156,
+      "accumulation_start_hour": 150,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f156.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 162,
+      "accumulation_start_hour": 156,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f162.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 168,
+      "accumulation_start_hour": 162,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f168.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 168,
+      "accumulation_start_hour": 162,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f168.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 174,
+      "accumulation_start_hour": 168,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f174.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 180,
+      "accumulation_start_hour": 174,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f180.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 186,
+      "accumulation_start_hour": 180,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f186.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 192,
+      "accumulation_start_hour": 186,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 192,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f192.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 174,
+      "accumulation_start_hour": 168,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f174.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 180,
+      "accumulation_start_hour": 174,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f180.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 186,
+      "accumulation_start_hour": 180,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f186.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 192,
+      "accumulation_start_hour": 186,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f192.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 192,
+      "accumulation_start_hour": 186,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f192.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 198,
+      "accumulation_start_hour": 192,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f198.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 204,
+      "accumulation_start_hour": 198,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f204.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 210,
+      "accumulation_start_hour": 204,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f210.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 216,
+      "accumulation_start_hour": 210,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 216,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f216.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 198,
+      "accumulation_start_hour": 192,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f198.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 204,
+      "accumulation_start_hour": 198,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f204.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 210,
+      "accumulation_start_hour": 204,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f210.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 216,
+      "accumulation_start_hour": 210,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f216.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 216,
+      "accumulation_start_hour": 210,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f216.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 222,
+      "accumulation_start_hour": 216,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f222.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 228,
+      "accumulation_start_hour": 222,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f228.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 234,
+      "accumulation_start_hour": 228,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f234.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitation",
+      "forecast_hour": 240,
+      "accumulation_start_hour": 234,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "temperature_2m",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.tmp_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "relative_humidity_2m",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.rh_2m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "mean_sea_level_pressure",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.prmsl.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "u_wind_10m",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.ugrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "v_wind_10m",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.vgrd_10m.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "precipitable_water",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.pwat_column.grb2.provenance.json"
+    },
+    {
+      "source": "gfs",
+      "variable": "cape_surface",
+      "forecast_hour": 240,
+      "accumulation_start_hour": null,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gfs\\20260929\\gfs.t12z.pgrb2.0p50.f240.cape_surface.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 222,
+      "accumulation_start_hour": 216,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f222.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 228,
+      "accumulation_start_hour": 222,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f228.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 234,
+      "accumulation_start_hour": 228,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f234.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_mean_6h",
+      "forecast_hour": 240,
+      "accumulation_start_hour": 234,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\geavg.t12z.pgrb2a.0p50.f240.apcp_6h.grb2.provenance.json"
+    },
+    {
+      "source": "gefs",
+      "variable": "precipitation_spread_6h",
+      "forecast_hour": 240,
+      "accumulation_start_hour": 234,
+      "provenance_path": "data\\raw\\v2\\current\\2026092912\\gefs\\20260929\\gespr.t12z.pgrb2a.0p50.f240.apcp_6h.grb2.provenance.json"
+    }
+  ],
+  "model_id": "v2-recommended-0p50",
+  "frozen_model_selection_sha256": "860ceae071ff28fc9acc88916cb0c9e0b5006229818dbd90e7f952c1d38979d7",
+  "feature_schema_version": "2.0",
+  "feature_names_ordered": [
+    "lead_day",
+    "forecast_precipitation",
+    "forecast_temperature_2m",
+    "forecast_relative_humidity_2m",
+    "forecast_mean_sea_level_pressure",
+    "forecast_u_wind_10m",
+    "forecast_v_wind_10m",
+    "forecast_precipitable_water",
+    "forecast_cape_surface",
+    "forecast_wind_speed_10m",
+    "precipitation_gradient_mm_per_degree",
+    "gefs_precipitation_mean_mm",
+    "gefs_end_window_spread_6h_mm",
+    "gfs_minus_gefs_mean_precipitation_mm"
+  ],
+  "grid": {
+    "south": 6.0,
+    "north": 37.0,
+    "west": 68.0,
+    "east": 98.0,
+    "grid_resolution_degrees": 0.5,
+    "cells_per_lead": 3843
+  },
+  "records": 38430,
+  "new_payload_bytes": 27345386,
+  "cached_payload_bytes": 0,
+  "artifacts": {
+    "features.csv.gz": {
+      "sha256": "820c7aa54743db315c46f862fdf163267e3a1640376a494b6412f997911a1a90",
+      "bytes": 1704143
+    },
+    "predictions.json.gz": {
+      "sha256": "efcb04f280e20ddd04ac4499afb541182414b5d6066f97869ac3844612682385",
+      "bytes": 6721355
+    }
+  }
+}

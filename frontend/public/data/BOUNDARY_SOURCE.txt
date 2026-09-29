@@ -1,0 +1,18 @@
+India ADM1 state boundaries (simplified), geoBoundaries gbOpen release 9469f09.
+Source metadata: https://www.geoboundaries.org/api/current/gbOpen/IND/ADM1/
+Source: DataMeet India community / Election Commission of India.
+License: Creative Commons Attribution 2.5 India (CC BY 2.5 IN).
+Source SHA-256: 4c63fe43294a391e8f2de4e9f86f3edb60f8688275b9fee90c61fb2aa0c26061
+
+This local subset contains Madhya Pradesh, Maharashtra, Rajasthan, Uttar Pradesh,
+Chhattisgarh, and Telangana. Geometries are from the pinned simplified
+source without hand-drawn changes. English labels and representative label points
+were derived by scripts/prepare_ui_boundaries.py. Boundaries are display-only and
+do not change the forecast grid or the model's predictions.
+
+V2: india-states.geojson contains all 36 state/UT ADM1 geometries from the
+same pinned, checksum-verified source. Only the original six central-India
+map labels remain visible to avoid overcrowding the approved map design.
+The 2011 ADM1 source is geographic context, not a claim about current legal
+boundaries. State inference uses 0.5-degree grid centers inside each polygon;
+five small state/UT units have no such center and receive no fabricated result.

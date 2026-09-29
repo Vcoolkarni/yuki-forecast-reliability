@@ -1,0 +1,10 @@
+model_path: models/phase2_xgboost_calibrated.joblib
+forecast_path: data/interim/gfs_phase2_forecast.csv
+historical_path: data/processed/phase2_historical_fixed.csv
+inference_config_path: config/inference.yaml
+cache_max_initializations: 4
+cors_origins:
+  - http://localhost:3000
+  - http://127.0.0.1:3000
+  - http://localhost:5173
+  - http://127.0.0.1:5173

@@ -1,0 +1,5 @@
+-r requirements-web.txt
+requests==2.34.2
+xarray==2026.7.0
+cfgrib==0.9.15.1
+eccodes==2.48.0

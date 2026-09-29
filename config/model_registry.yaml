@@ -1,0 +1,24 @@
+default: v1
+models:
+  v1:
+    model_version: '1.0'
+    status: ready
+    artifact: models/phase2_xgboost_calibrated.joblib
+    feature_schema_version: '1.0'
+    training_period:
+    - '2026-07-01'
+    - '2026-08-22'
+    historical_dataset_period:
+    - '2026-07-01'
+    - '2026-09-12'
+    description: Existing 30-initialization Central India prototype; unchanged.
+  v2:
+    model_version: '2.0'
+    status: ready
+    artifact: models/v2/recommended_0p50/bust_classifier.joblib
+    feature_schema_version: '2.0'
+    training_period:
+    - '2021-06-01'
+    - '2023-09-30'
+    description: RECOMMENDED 0.5-degree historical model; separately evaluated, not
+      default production model.

@@ -1,0 +1,11 @@
+# Display categories for model-derived confidence, not probabilities of correctness.
+confidence:
+  high_min: 80.0
+  moderate_min: 50.0
+hotspots:
+  # null uses the trained model's stored decision threshold.
+  probability_threshold: null
+  min_cells: 2
+  connectivity: 4
+explanations:
+  top_features: 3

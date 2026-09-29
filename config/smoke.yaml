@@ -1,0 +1,34 @@
+project:
+  random_seed: 42
+geography:
+  north: 24.0
+  south: 20.0
+  west: 76.0
+  east: 80.0
+time:
+  # Two ERA5 dates cover the GFS 00Z initialization through its +24 h valid time.
+  start_date: "2026-09-19"
+  end_date: "2026-09-20"
+  initialization_hours: [0]
+forecast:
+  lead_days: [1]
+  variables: [precipitation]
+  precipitation_variable: tp
+reference:
+  precipitation_variable: tp
+  match_tolerance_hours: 1
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  cache_dir: data/cache
+  model_dir: models
+  report_dir: reports
+labeling:
+  method: absolute_error
+  bust_threshold_mm: 20.0
+model:
+  test_fraction: 0.2
+  n_estimators: 200
+  max_depth: 4
+  learning_rate: 0.05

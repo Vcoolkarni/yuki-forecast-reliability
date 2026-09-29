@@ -1,0 +1,13 @@
+# Frozen-model serving stack; Python 3.13.15. Keep in sync with tested artifacts.
+-c constraints-production.txt
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.9.1
+xgboost==3.4.1
+joblib==1.6.0
+PyYAML==6.0.3
+fastapi==0.141.1
+uvicorn==0.54.0
+pydantic==2.13.5
+boto3==1.40.0

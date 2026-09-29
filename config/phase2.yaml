@@ -1,0 +1,63 @@
+project:
+  random_seed: 42
+geography: {north: 24.0, south: 20.0, west: 76.0, east: 80.0}
+time:
+  # Explicit, chronologically ordered initialization dates; they need not be consecutive.
+  initialization_dates: ["2026-07-01", "2026-07-04", "2026-07-07", "2026-07-10", "2026-07-13", "2026-07-16", "2026-07-19", "2026-07-22", "2026-07-25", "2026-07-28", "2026-08-01", "2026-08-04", "2026-08-07", "2026-08-10", "2026-08-13", "2026-08-16", "2026-08-19", "2026-08-22", "2026-08-25", "2026-08-28", "2026-09-01", "2026-09-02", "2026-09-03", "2026-09-05", "2026-09-07", "2026-09-08", "2026-09-09", "2026-09-10", "2026-09-11", "2026-09-12"]
+  start_date: "2026-09-01"
+  end_date: "2026-09-20"
+  initialization_hours: [0]
+forecast:
+  lead_days: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  variables: [precipitation, temperature_2m, relative_humidity_2m, mean_sea_level_pressure, u_wind_10m, v_wind_10m]
+  precipitation_variable: tp
+  predictors:
+    precipitation:
+      selector_template: ":APCP:surface:0-{lead} day acc fcst:"
+      cache_suffix: apcp_cumulative
+      output_column: forecast_precipitation
+      accumulation: cumulative
+    temperature_2m:
+      selector_template: ":TMP:2 m above ground:"
+      cache_suffix: tmp_2m
+      output_column: forecast_temperature_2m
+      accumulation: instantaneous
+    relative_humidity_2m:
+      selector_template: ":RH:2 m above ground:"
+      cache_suffix: rh_2m
+      output_column: forecast_relative_humidity_2m
+      accumulation: instantaneous
+    mean_sea_level_pressure:
+      selector_template: ":PRMSL:mean sea level:"
+      cache_suffix: prmsl
+      output_column: forecast_mean_sea_level_pressure
+      accumulation: instantaneous
+    u_wind_10m:
+      selector_template: ":UGRD:10 m above ground:"
+      cache_suffix: ugrd_10m
+      output_column: forecast_u_wind_10m
+      accumulation: instantaneous
+    v_wind_10m:
+      selector_template: ":VGRD:10 m above ground:"
+      cache_suffix: vgrd_10m
+      output_column: forecast_v_wind_10m
+      accumulation: instantaneous
+reference: {precipitation_variable: tp, match_tolerance_hours: 1}
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  cache_dir: data/cache
+  model_dir: models
+  report_dir: reports
+labeling:
+  method: absolute_error
+  bust_threshold_mm: 20.0
+  percentile: 90.0
+  lead_time_specific: false
+model:
+  test_fraction: 0.2
+  validation_fraction: 0.2
+  n_estimators: 250
+  max_depth: 4
+  learning_rate: 0.05

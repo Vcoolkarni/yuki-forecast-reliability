@@ -1,0 +1,104 @@
+{
+  "features": [
+    "lead_day",
+    "forecast_precipitation",
+    "forecast_temperature_2m",
+    "forecast_relative_humidity_2m",
+    "forecast_mean_sea_level_pressure",
+    "forecast_u_wind_10m",
+    "forecast_v_wind_10m",
+    "forecast_precipitable_water",
+    "forecast_cape_surface",
+    "forecast_wind_speed_10m",
+    "precipitation_gradient_mm_per_degree",
+    "gefs_precipitation_mean_mm",
+    "gefs_end_window_spread_6h_mm",
+    "gfs_minus_gefs_mean_precipitation_mm"
+  ],
+  "schema": {
+    "lead_day": {
+      "source": "forecast lead",
+      "unit": "day",
+      "transformation": "none",
+      "interpretation": "Error-growth horizon"
+    },
+    "forecast_precipitation": {
+      "source": "NOAA GFS :APCP:surface:",
+      "unit": "mm_per_24h",
+      "transformation": "sum_four_verified_6h_intervals",
+      "interpretation": "precipitation"
+    },
+    "forecast_temperature_2m": {
+      "source": "NOAA GFS :TMP:2 m above ground:",
+      "unit": "K",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "temperature 2m"
+    },
+    "forecast_relative_humidity_2m": {
+      "source": "NOAA GFS :RH:2 m above ground:",
+      "unit": "percent",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "relative humidity 2m"
+    },
+    "forecast_mean_sea_level_pressure": {
+      "source": "NOAA GFS :PRMSL:mean sea level:",
+      "unit": "Pa",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "mean sea level pressure"
+    },
+    "forecast_u_wind_10m": {
+      "source": "NOAA GFS :UGRD:10 m above ground:",
+      "unit": "m_per_s",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "u wind 10m"
+    },
+    "forecast_v_wind_10m": {
+      "source": "NOAA GFS :VGRD:10 m above ground:",
+      "unit": "m_per_s",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "v wind 10m"
+    },
+    "forecast_precipitable_water": {
+      "source": "NOAA GFS :PWAT:entire atmosphere (considered as a single layer):",
+      "unit": "kg_per_m2",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "precipitable water"
+    },
+    "forecast_cape_surface": {
+      "source": "NOAA GFS :CAPE:surface:",
+      "unit": "J_per_kg",
+      "transformation": "instantaneous_at_valid_time",
+      "interpretation": "cape surface"
+    },
+    "forecast_wind_speed_10m": {
+      "source": "GFS UGRD/VGRD 10 m",
+      "unit": "m/s",
+      "transformation": "hypot(u,v)",
+      "interpretation": "Near-surface wind intensity"
+    },
+    "precipitation_gradient_mm_per_degree": {
+      "source": "GFS daily APCP",
+      "unit": "mm/degree",
+      "transformation": "gridwise hypot(dP/dlat,dP/dlon)",
+      "interpretation": "Forecast rainfall spatial contrast"
+    },
+    "gefs_precipitation_mean_mm": {
+      "source": "NOAA GEFS published six-hour APCP mean/spread",
+      "unit": "mm",
+      "transformation": "four interval means or one final interval spread",
+      "interpretation": "Sum of four published six-hour ensemble means; daily ensemble mean"
+    },
+    "gefs_end_window_spread_6h_mm": {
+      "source": "NOAA GEFS published six-hour APCP mean/spread",
+      "unit": "mm",
+      "transformation": "four interval means or one final interval spread",
+      "interpretation": "Published ensemble standard deviation for the final six hours only; not daily spread"
+    },
+    "gfs_minus_gefs_mean_precipitation_mm": {
+      "source": "NOAA GEFS published six-hour APCP mean/spread",
+      "unit": "mm",
+      "transformation": "four interval means or one final interval spread",
+      "interpretation": "GFS daily rainfall minus published GEFS daily mean"
+    }
+  }
+}

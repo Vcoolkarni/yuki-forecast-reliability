@@ -1,0 +1,9 @@
+{
+  "model_version": "v2-recommended-0p50",
+  "status": "evaluated_not_production",
+  "default_model": "v1",
+  "frozen_selection_sha256": "860ceae071ff28fc9acc88916cb0c9e0b5006229818dbd90e7f952c1d38979d7",
+  "final_test_metrics_sha256": "8d73a3b657d723e9bbfab5206441a4464d0f2c9533c8fc52a579c93d1e67f30d",
+  "final_test_predictions_sha256": "eb5a3f32ea4b23812f21ac63e913bf496f374a46a02b35b2c67e92ae12afc910",
+  "dataset_manifest_sha256": "1c2df9eeb516469c82b68e959730a488c5c2a1a4e38b6f2151425d9e83c8718a"
+}

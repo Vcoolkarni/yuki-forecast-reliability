@@ -1,0 +1,82 @@
+version: v2
+project:
+  random_seed: 42
+geography:
+  # Planning envelope, not a claim that an India-wide model already exists.
+  south: 6.0
+  north: 37.0
+  west: 68.0
+  east: 98.0
+  grid_resolution_degrees: 0.25
+  selected_states: []
+time:
+  start_date: "2022-07-01"
+  end_date: "2025-09-30"
+  sampling:
+    months: [7, 8, 9]
+    every_n_days: 7
+    anchor_day_of_month: 1
+  initialization_hours: [0]
+forecast:
+  lead_days: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  gfs:
+    bucket_url: https://noaa-gfs-bdp-pds.s3.amazonaws.com
+    product: pgrb2.0p25
+    predictors:
+      precipitation: {selector_template: ":APCP:surface:", cache_suffix: apcp_6h, output_column: forecast_precipitation, unit: mm_per_24h, temporal: sum_four_verified_6h_intervals}
+      temperature_2m: {selector_template: ":TMP:2 m above ground:", cache_suffix: tmp_2m, output_column: forecast_temperature_2m, unit: K, temporal: instantaneous_at_valid_time}
+      relative_humidity_2m: {selector_template: ":RH:2 m above ground:", cache_suffix: rh_2m, output_column: forecast_relative_humidity_2m, unit: percent, temporal: instantaneous_at_valid_time}
+      mean_sea_level_pressure: {selector_template: ":PRMSL:mean sea level:", cache_suffix: prmsl, output_column: forecast_mean_sea_level_pressure, unit: Pa, temporal: instantaneous_at_valid_time}
+      u_wind_10m: {selector_template: ":UGRD:10 m above ground:", cache_suffix: ugrd_10m, output_column: forecast_u_wind_10m, unit: m_per_s, temporal: instantaneous_at_valid_time}
+      v_wind_10m: {selector_template: ":VGRD:10 m above ground:", cache_suffix: vgrd_10m, output_column: forecast_v_wind_10m, unit: m_per_s, temporal: instantaneous_at_valid_time}
+      cape_surface: {selector_template: ":CAPE:surface:", cache_suffix: cape_surface, output_column: forecast_cape_surface, unit: J_per_kg, temporal: instantaneous_at_valid_time}
+      precipitable_water: {selector_template: ":PWAT:entire atmosphere (considered as a single layer):", cache_suffix: pwat_column, output_column: forecast_precipitable_water, unit: kg_per_m2, temporal: instantaneous_at_valid_time}
+      geopotential_height_500mb: {selector_template: ":HGT:500 mb:", cache_suffix: hgt_500mb, output_column: forecast_geopotential_height_500mb, unit: gpm, temporal: instantaneous_at_valid_time}
+      vertical_velocity_700mb: {selector_template: ":VVEL:700 mb:", cache_suffix: vvel_700mb, output_column: forecast_vertical_velocity_700mb, unit: Pa_per_s, temporal: instantaneous_at_valid_time}
+      u_wind_850mb: {selector_template: ":UGRD:850 mb:", cache_suffix: ugrd_850mb, output_column: forecast_u_wind_850mb, unit: m_per_s, temporal: instantaneous_at_valid_time}
+      v_wind_850mb: {selector_template: ":VGRD:850 mb:", cache_suffix: vgrd_850mb, output_column: forecast_v_wind_850mb, unit: m_per_s, temporal: instantaneous_at_valid_time}
+      u_wind_200mb: {selector_template: ":UGRD:200 mb:", cache_suffix: ugrd_200mb, output_column: forecast_u_wind_200mb, unit: m_per_s, temporal: instantaneous_at_valid_time}
+      v_wind_200mb: {selector_template: ":VGRD:200 mb:", cache_suffix: vgrd_200mb, output_column: forecast_v_wind_200mb, unit: m_per_s, temporal: instantaneous_at_valid_time}
+  gefs:
+    enabled: true
+    bucket_url: https://noaa-gefs-pds.s3.amazonaws.com
+    product: pgrb2s.0p25
+    directory: pgrb2sp25
+    members: [c00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30]
+    precipitation_step_hours: 6
+    precipitation_selector: ":APCP:surface:"
+    exceedance_thresholds_mm: [10.0, 20.0, 50.0]
+reference:
+  dataset: reanalysis-era5-single-levels
+  variables: [total_precipitation]
+  accumulation_hours: 24
+  cache_by: month
+paths:
+  raw_dir: data/raw/v2
+  interim_dir: data/interim/v2
+  processed_dir: data/processed/v2
+  model_dir: models/v2
+  report_dir: reports/v2
+  # Read-only reuse of compatible V1 GFS message caches.
+  legacy_gfs_dir: data/raw/gfs_phase2
+  state_boundaries: frontend/public/data/central-india-states.geojson
+evaluation:
+  train_end: "2023-12-31"
+  validation_start: "2024-01-01"
+  validation_end: "2024-12-31"
+  test_start: "2025-01-01"
+  test_end: "2025-12-31"
+  embargo_days: 10
+model:
+  classifier_target: is_bust
+  regression_target: target_absolute_error_mm
+  feature_schema_version: "2.0"
+  # Label threshold selection, calibration, and pooled-vs-lead comparison use train/validation only.
+  bust_definition: training_lead_specific_percentile
+  percentile: 90.0
+estimation:
+  # Offline planning assumptions, NOT observed GEFS byte sizes or a CDS quote.
+  fallback_gfs_message_mib: 1.0
+  fallback_gefs_message_mib: 0.65
+  fallback_era5_month_mib: 150.0
+  max_single_grib_message_mib: 16.0

@@ -1,0 +1,6 @@
+version: v2_current
+discovery_cycles: 8
+max_new_payload_gib_per_run: 1.0
+download_workers: 16
+raw_dir: data/raw/v2/current
+processed_dir: data/processed/v2/current

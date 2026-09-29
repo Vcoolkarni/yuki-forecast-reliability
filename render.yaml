@@ -1,0 +1,60 @@
+# Blueprint preparation only. Creating services requires explicit user action.
+services:
+  - type: web
+    name: yuki-api
+    runtime: python
+    # Review compute plan before creation; Render's default 512 MB may be tight
+    # for full-grid JSON plus the frozen models. No paid plan is selected here.
+    buildCommand: pip install -r requirements-web.txt
+    startCommand: python -m uvicorn forecast_bust.api.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v2/health
+    envVars:
+      - key: PYTHONPATH
+        value: src
+      - key: FORECAST_BUST_CORS_ORIGINS
+        sync: false
+      - key: FORECAST_BUST_OBJECT_BUCKET
+        sync: false
+      - key: FORECAST_BUST_OBJECT_ENDPOINT
+        sync: false
+      - key: AWS_DEFAULT_REGION
+        sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+
+  - type: web
+    name: yuki-site
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 24.21.0
+      - key: VITE_API_BASE_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: cron
+    name: yuki-forecast-publisher
+    runtime: python
+    schedule: "0 12 * * *"
+    buildCommand: pip install -r requirements-publisher.txt
+    startCommand: python scripts/publish_v2_current.py
+    envVars:
+      - key: PYTHONPATH
+        value: src
+      - key: FORECAST_BUST_OBJECT_BUCKET
+        sync: false
+      - key: FORECAST_BUST_OBJECT_ENDPOINT
+        sync: false
+      - key: AWS_DEFAULT_REGION
+        sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
