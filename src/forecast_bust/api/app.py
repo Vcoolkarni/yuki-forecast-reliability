@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 from typing import Annotated, Literal
 import logging
 import math
+import os
 
 from fastapi import FastAPI, HTTPException, Path, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -40,7 +41,11 @@ def create_app(settings: APISettings | None = None, repository=None) -> FastAPI:
     application.state.repository = store
     application.state.analogs = analog_store
     # V2 is registered independently; V1 startup/readiness remains unchanged.
-    v2_store = V2Repository(PROJECT_ROOT)
+    # Keep only one full-grid artifact resident on memory-constrained hosts.
+    v2_cache_size = int(os.environ.get("FORECAST_BUST_V2_CACHE_SIZE", "4"))
+    if v2_cache_size < 1:
+        raise ValueError("FORECAST_BUST_V2_CACHE_SIZE must be positive")
+    v2_store = V2Repository(PROJECT_ROOT, cache_size=v2_cache_size)
     application.state.v2_repository = v2_store
     application.include_router(create_v2_router(v2_store))
     # Forecast-grid JSON is large; HTTP compression changes transfer size, not model outputs.

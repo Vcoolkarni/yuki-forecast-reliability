@@ -6,6 +6,7 @@
 .venv/
 .venv*/
 .deploy-venv/
+.render-venv/
 .fresh-frontend/
 .vercel/
 build/

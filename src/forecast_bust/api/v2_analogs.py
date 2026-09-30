@@ -15,8 +15,11 @@ COLUMNS = ("initialization_time", "lead_day", "latitude", "longitude", *FEATURES
 
 
 class V2AnalogRepository:
-    def __init__(self, root: Path):
+    def __init__(self, root: Path, index_cache_size: int = 2):
+        if index_cache_size < 1:
+            raise ValueError("Analog index cache size must be positive")
         self.root = root
+        self.index_cache_size = index_cache_size
         self.cache = OrderedDict()
         self.index_cache = OrderedDict()
         self.lock = RLock()
@@ -30,7 +33,7 @@ class V2AnalogRepository:
             if loaded["values"].shape != (105, 3843, len(FEATURES) + 2):
                 raise ValueError("V2 analog index has an incompatible shape")
             self.index_cache[lead] = loaded
-            if len(self.index_cache) > 2:
+            if len(self.index_cache) > self.index_cache_size:
                 self.index_cache.popitem(last=False)
         self.index_cache.move_to_end(lead)
         index = self.index_cache[lead]

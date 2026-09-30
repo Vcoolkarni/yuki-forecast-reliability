@@ -21,6 +21,8 @@ from .repository import normalize_initialization
 class V2Repository:
     def __init__(self, project_root: Path, source_path: Path | None = None,
                  boundary_path: Path | None = None, cache_size: int = 4):
+        if cache_size < 1:
+            raise ValueError("V2 forecast cache size must be positive")
         self.project_root = project_root
         configured = os.environ.get("FORECAST_BUST_V2_FORECAST_PATH")
         packaged_demo = project_root / "runtime/v2_historical_demo_forecasts.csv.gz"
@@ -119,6 +121,10 @@ class V2Repository:
             if key not in self.frames and key not in self.current_runs:
                 raise KeyError(key)
             if key not in self.cache:
+                # Evict before constructing/loading another full-grid artifact so
+                # one-entry caches do not briefly hold both runs in memory.
+                while len(self.cache) >= self.cache_size:
+                    self.cache.popitem(last=False)
                 if key in self.current_runs:
                     source = self.current_runs[key]
                     with gzip.open(source["prediction_path"], "rt", encoding="utf-8") as handle:
@@ -131,8 +137,6 @@ class V2Repository:
                     self.cache[key] = artifact
                 else:
                     self.cache[key] = self.service.predict_initialization(self.frames[key])
-                if len(self.cache) > self.cache_size:
-                    self.cache.popitem(last=False)
             self.cache.move_to_end(key)
             return self.cache[key]
 

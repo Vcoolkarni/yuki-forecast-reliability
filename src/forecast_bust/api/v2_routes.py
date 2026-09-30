@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import os
 from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Path, Query
@@ -38,8 +39,10 @@ def state_metrics(artifact: dict, name: str, members: set[tuple[float, float]], 
 def create_v2_router(store: V2Repository) -> APIRouter:
     router = APIRouter(prefix="/api/v2")
     packaged_analogs = store.project_root / "runtime/analogs_v2"
+    index_cache_size = int(os.environ.get("FORECAST_BUST_V2_ANALOG_INDEX_CACHE_SIZE", "2"))
     analog_store = V2AnalogRepository(packaged_analogs if packaged_analogs.is_dir() else
-                                      store.project_root / "data/processed/v2/recommended_0p50")
+                                      store.project_root / "data/processed/v2/recommended_0p50",
+                                      index_cache_size=index_cache_size)
 
     def ready():
         try:
