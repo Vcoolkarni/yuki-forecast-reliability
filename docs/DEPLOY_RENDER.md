@@ -93,15 +93,22 @@ npm run build
 
 ## GitHub → Render
 
-1. Push the validated deployment commit to `main`. Connect the repository to
-   a Render Blueprint using root `render.yaml`. Confirm it creates only the
-   Free API and static site, with no paid service or Cron Job.
-2. Enter or update the exact API/site origins above. If Render assigns
-   different hostnames, correct both values and redeploy both services; the
-   static-site API origin is baked in at build time.
+1. The two services were created directly in Render from GitHub, with settings
+   matching `render.yaml`. The Blueprint is a reproducible template, not an
+   active sync for these already-created services. Future pushes to `main`
+   auto-deploy both services.
+2. Keep API `FORECAST_BUST_CORS_ORIGINS` set to the static-site origin and
+   static-site `VITE_API_BASE_URL` set to the API origin. The static-site value
+   is baked in at build time. Configure a Render static-site rewrite of `/*`
+   to `/index.html` if it is not present; direct service creation does not
+   import the Blueprint's rewrite rule.
 3. Check the public API's `/api/v2/health`, `/api/v2/states`, current-run
    summary, state summary, Day 1 grid, and explainability endpoints. Then
    test all four screens and direct `/analysis`, `/risk`, `/explain` refreshes.
 
-Frontend URL: pending Render deployment. Backend URL: pending Render deployment.
-Do not mark the services live until public checks pass.
+Frontend URL: https://yuki-site-caq0.onrender.com
+
+Backend URL: https://yuki-api-a02h.onrender.com
+
+Do not mark the full website verified until public current-run and SPA route
+checks pass.

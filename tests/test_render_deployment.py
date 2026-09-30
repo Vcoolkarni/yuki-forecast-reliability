@@ -3,6 +3,8 @@
 from pathlib import Path
 from collections import OrderedDict
 from threading import RLock
+import json
+import shutil
 
 import pytest
 import yaml
@@ -10,7 +12,7 @@ import yaml
 from forecast_bust.api.app import create_app
 from forecast_bust.api.settings import APISettings
 from forecast_bust.api.v2_analogs import V2AnalogRepository
-from forecast_bust.api.v2_repository import V2Repository
+from forecast_bust.api.v2_repository import V2Repository, frozen_selection_digests
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,3 +68,27 @@ def test_one_entry_forecast_cache_evicts_before_building_next_run():
     repository.service = Model()
     assert repository.get(second)["initialization_time"] == second
     assert list(repository.cache) == [second]
+
+
+def test_current_run_integrity_accepts_only_git_line_ending_conversion(tmp_path):
+    packaged = ROOT / "runtime/current/runs/2026092912"
+    if not packaged.is_dir():
+        pytest.skip("Packaged current run is required")
+    manifest = json.loads((packaged / "manifest.json").read_text(encoding="utf-8"))
+    frozen = ROOT / "models/v2/recommended_0p50/frozen_selection.json"
+    linux_bytes = frozen.read_bytes().replace(b"\r\n", b"\n")
+    target = tmp_path / "models/v2/recommended_0p50/frozen_selection.json"
+    target.parent.mkdir(parents=True)
+    target.write_bytes(linux_bytes)
+    assert manifest["frozen_model_selection_sha256"] in frozen_selection_digests(target)
+    target.write_bytes(linux_bytes + b"tampered")
+    assert manifest["frozen_model_selection_sha256"] not in frozen_selection_digests(target)
+    target.write_bytes(linux_bytes)
+    run = tmp_path / "runtime/current/runs/2026092912"
+    run.mkdir(parents=True)
+    for name in ("manifest.json", "features.csv.gz", "predictions.json.gz"):
+        shutil.copyfile(packaged / name, run / name)
+    repository = V2Repository(tmp_path)
+    model = type("FrozenModel", (), {"model_id": manifest["model_id"],
+                                     "features": manifest["feature_names_ordered"]})()
+    assert "2026-09-29T12:00:00Z" in repository._scan_current_runs(model)

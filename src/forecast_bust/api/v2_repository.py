@@ -18,6 +18,15 @@ from ..v2.current_store import CurrentObjectStore
 from .repository import normalize_initialization
 
 
+def frozen_selection_digests(path: Path) -> set[str]:
+    """Accept Git's LF checkout of a CRLF-hashed text manifest, nothing else."""
+    raw = path.read_bytes()
+    digests = {sha256(raw).hexdigest()}
+    if b"\r" not in raw and b"\n" in raw:
+        digests.add(sha256(raw.replace(b"\n", b"\r\n")).hexdigest())
+    return digests
+
+
 class V2Repository:
     def __init__(self, project_root: Path, source_path: Path | None = None,
                  boundary_path: Path | None = None, cache_size: int = 4):
@@ -85,7 +94,8 @@ class V2Repository:
 
     def _scan_current_runs(self, service: V2Inference) -> dict:
         current_runs = {}
-        frozen_digest = sha256((self.project_root / "models/v2/recommended_0p50/frozen_selection.json").read_bytes()).hexdigest()
+        frozen_digests = frozen_selection_digests(
+            self.project_root / "models/v2/recommended_0p50/frozen_selection.json")
         roots = [self.project_root / "runtime/current", self.current_root]
         manifests = [path for root in roots for path in sorted((root / "runs").glob("*/manifest.json"))]
         for manifest_path in manifests:
@@ -94,7 +104,7 @@ class V2Repository:
                 if (manifest.get("status") != "complete" or manifest.get("run_kind") != "current_forecast"
                         or manifest.get("run_id") != manifest_path.parent.name
                         or manifest.get("model_id") != service.model_id
-                        or manifest.get("frozen_model_selection_sha256") != frozen_digest
+                        or manifest.get("frozen_model_selection_sha256") not in frozen_digests
                         or manifest.get("feature_names_ordered") != service.features
                         or manifest.get("records") != 38430):
                     raise ValueError("Current run manifest is incompatible with frozen V2")
