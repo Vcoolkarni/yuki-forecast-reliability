@@ -1,0 +1,16 @@
+# Local credentials and development-only artifacts must never enter a CLI upload.
+.secrets/
+.env
+.env.*
+.cdsapirc
+.venv/
+.venv*/
+.deploy-venv/
+.fresh-frontend/
+frontend/node_modules/
+frontend/dist/
+data/raw/
+data/interim/
+data/processed/
+reports/
+ref_images/

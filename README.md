@@ -1,8 +1,9 @@
 # SIH26079 — Forecast Bust Detection (Phase 1)
 
-For the current Yuki V2 production bundle and GitHub → Render setup, see
-[the deployment checklist](docs/DEPLOY_RENDER.md). The commands there prepare
-the repository but do not deploy, push, acquire weather data, or retrain.
+For the current Yuki V2 production bundle, see the
+[Vercel Services checklist](docs/DEPLOY_VERCEL.md) or the
+[Render checklist](docs/DEPLOY_RENDER.md). Neither setup deploys, pushes,
+acquires weather data, or retrains by itself.
 
 Working Python foundation for predicting where and at which lead day a deterministic
 medium-range rainfall forecast is likely to have a large error. This phase deliberately

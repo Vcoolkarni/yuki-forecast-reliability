@@ -62,7 +62,8 @@ Set these environment-variable **names** in Render (never commit values):
   `FORECAST_BUST_OBJECT_ENDPOINT`, `AWS_DEFAULT_REGION`, `AWS_ACCESS_KEY_ID`,
   `AWS_SECRET_ACCESS_KEY`.
 - Static site (build time): `VITE_API_BASE_URL` (the public API HTTPS origin,
-  without a trailing slash). A production build fails if this is missing.
+  without a trailing slash). This is required for Render's separate-origin
+  static site and API; without it, production requests use the same origin.
 - Publisher: the same object-store variables as the API. `PYTHONPATH` is
   configured in the Blueprint; Render supplies `PORT` to the web service.
 

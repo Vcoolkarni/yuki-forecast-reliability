@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "frontend": {
+      "root": "frontend",
+      "framework": "vite",
+      "rewrites": [
+        { "source": "/(.*)", "destination": "/index.html" }
+      ]
+    },
+    "yuki-site": {
+      "root": ".",
+      "framework": "fastapi",
+      "entrypoint": "main:app",
+      "installCommand": "pip install -r requirements-web.txt"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": { "service": "yuki-site" } },
+    { "source": "/health", "destination": { "service": "yuki-site" } },
+    { "source": "/docs", "destination": { "service": "yuki-site" } },
+    { "source": "/redoc", "destination": { "service": "yuki-site" } },
+    { "source": "/openapi.json", "destination": { "service": "yuki-site" } },
+    { "source": "/(.*)", "destination": { "service": "frontend" } }
+  ]
+}

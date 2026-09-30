@@ -3,10 +3,9 @@ import type { AnalogsResponse, BriefResponse, Comparison, DayResponse, GridCell,
   StatesResponse, StateSummaryResponse, EscalationResponse } from '../types/api';
 
 const configuredBase = import.meta.env.VITE_API_BASE_URL;
-if (import.meta.env.PROD && !configuredBase) {
-  throw new Error('VITE_API_BASE_URL is required for a production build.');
-}
-const BASE = (configuredBase || 'http://127.0.0.1:8000').replace(/\/$/, '');
+// On a same-origin deployment (Vercel Services), API paths remain relative.
+// Local development and explicitly configured cross-origin deployments retain their existing behavior.
+const BASE = (configuredBase || (import.meta.env.PROD ? '' : 'http://127.0.0.1:8000')).replace(/\/$/, '');
 export class ApiError extends Error { constructor(public status: number, message: string) { super(message); } }
 export async function request<T>(path: string, signal?: AbortSignal): Promise<T> {
   let response: Response;
