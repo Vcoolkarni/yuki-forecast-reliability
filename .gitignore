@@ -2,6 +2,9 @@
 .venv*/
 .deploy-venv/
 .fresh-frontend/
+.vercel/
+build/
+*.egg-info/
 __pycache__/
 *.py[cod]
 .pytest_cache/

@@ -6,7 +6,9 @@ reachable on the same deployment at `/api/*`; the V1 `/health` route and
 FastAPI documentation routes also reach the backend. Frontend deep links
 resolve to `index.html`. The backend uses the existing `requirements-web.txt`,
 frozen models, and checked-in `runtime/` data through the lightweight
-`main:app` entrypoint.
+`main:app` entrypoint. The FastAPI function explicitly includes its model,
+configuration, current/demo forecast, analog index, and India boundary files;
+development-only files are excluded from that function bundle.
 
 1. In Vercel's import screen, keep the project root at the repository root and
    select **Services** as the framework. Confirm the two services are `frontend`

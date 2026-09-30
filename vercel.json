@@ -12,7 +12,13 @@
       "root": ".",
       "framework": "fastapi",
       "entrypoint": "main:app",
-      "installCommand": "pip install -r requirements-web.txt"
+      "installCommand": "pip install -r requirements-web.txt",
+      "functions": {
+        "main.py": {
+          "includeFiles": "{config/**,models/**,runtime/**,frontend/public/data/india-states.geojson}",
+          "excludeFiles": "{tests/**,docs/**,scripts/**,data/**,reports/**,ref_images/**,frontend/src/**,frontend/node_modules/**,frontend/dist/**,build/**,src/*.egg-info/**}"
+        }
+      }
     }
   },
   "rewrites": [

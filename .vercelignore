@@ -7,6 +7,9 @@
 .venv*/
 .deploy-venv/
 .fresh-frontend/
+.vercel/
+build/
+*.egg-info/
 frontend/node_modules/
 frontend/dist/
 data/raw/
