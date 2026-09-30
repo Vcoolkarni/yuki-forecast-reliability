@@ -11,13 +11,21 @@ export function Shell({ health, initialization, onInitialization, lead, onLead, 
   const resolution = health.grid?.latitude_step_degrees && health.grid?.longitude_step_degrees
     ? `${health.grid.latitude_step_degrees.toFixed(2)}° × ${health.grid.longitude_step_degrees.toFixed(2)}° grid` : 'Grid resolution unavailable';
   const run = health.run_metadata?.[initialization];
+  const compactRunLabel = (value: string) => {
+    const date = new Date(value);
+    const kind = health.run_metadata?.[value]?.run_kind;
+    const prefix = kind === 'current_forecast' ? 'Current' : kind === 'historical_demo' ? 'Demo' : 'Forecast';
+    const day = date.toLocaleDateString('en-GB', { timeZone: 'UTC', day: 'numeric', month: 'short' });
+    const hour = date.toLocaleTimeString('en-GB', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hour12: false });
+    return `${prefix} · ${day} ${hour}Z`;
+  };
   const links = [ ['/', House, 'Overview'], ['/analysis', BarChart3, 'Forecast Analysis'],
     ['/risk', MapPin, 'Risk & Hotspots'], ['/explain', CircleHelp, 'Why This Forecast?'] ] as const;
   return <div className="app-shell">
     <aside className="sidebar glass">
       <NavLink to="/" className="brand"><img src="/logo.png" alt="Yuki" /></NavLink>
       <nav aria-label="Primary navigation">{links.map(([to, Icon, label]) =>
-        <NavLink end={to === '/'} key={to} to={to} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink end={to === '/'} key={to} to={to} aria-label={label} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <Icon size={19} strokeWidth={2} /><span>{label}</span>
         </NavLink>)}</nav>
       <div className="sidebar-foot"><img src="/logo.png" alt="" /><span>Forecast reliability<br/><small>{region} · {resolution}</small></span></div>
@@ -30,6 +38,8 @@ export function Shell({ health, initialization, onInitialization, lead, onLead, 
         </select></span></label>}
         <label className="init-control"><CalendarDays size={20} /><span><small>Forecast initialization</small><select value={initialization} onChange={event => onInitialization(event.target.value)} aria-label="Forecast initialization">
           {health.available_initializations.map(value => <option key={value} value={value}>{health.run_metadata?.[value]?.run_kind === 'current_forecast' ? 'Current forecast · ' : health.run_metadata?.[value]?.run_kind === 'historical_demo' ? 'Historical demo · ' : ''}{new Date(value).toLocaleString('en-GB', { timeZone: 'UTC', dateStyle: 'medium', timeStyle: 'short' })} UTC</option>)}
+        </select><select className="run-mobile" value={initialization} onChange={event => onInitialization(event.target.value)} aria-label="Forecast initialization (mobile)">
+          {health.available_initializations.map(value => <option key={value} value={value}>{compactRunLabel(value)}</option>)}
         </select></span></label>
       </header>
       <main><div className="context-row"><div className="chips"><span><MapPin size={16} /> {region}</span><span>{resolution}</span><span>10-day forecast horizon</span></div>

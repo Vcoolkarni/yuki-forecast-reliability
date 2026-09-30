@@ -74,4 +74,24 @@ describe('highest-risk demo flow', () => {
     expect(screen.getByText('26.9°C')).toBeTruthy();
     expect(screen.getByText('10.0 mm')).toBeTruthy();
   });
+  it('keeps loading when new-lead hotspots arrive before the matching grid', () => {
+    const stateDay = { state: 'Madhya Pradesh', lead_day: 7, grid_cell_count: 1,
+      mean_forecast_confidence: 36, mean_bust_probability: .64, predicted_bust_cell_percentage: 100,
+      mean_expected_absolute_error_mm: 8, mean_gefs_end_window_spread_6h_mm: 3,
+      highest_risk_cell: cell, hotspot_count: 1 };
+    const earlyHotspots = { lead_day: 7, hotspots: [{ hotspot_id: 'risk-7', lead_day: 7,
+      member_cells: [{ latitude: 22.5, longitude: 78 }], number_of_cells: 1,
+      centroid_latitude: 22.5, centroid_longitude: 78, mean_bust_probability: .64,
+      max_bust_probability: .64, mean_confidence: 36,
+      bounding_box: { south: 22.5, north: 22.5, west: 78, east: 78 } }] };
+    const responses = [ready({ lead_day_summaries: [summary] }),
+      { data: null, loading: true, error: null } as never, ready(cell), ready(earlyHotspots),
+      ready(stateDay), ready({ days: [stateDay], most_uncertain_lead_day: 7, grid_cell_count: 1 }),
+      ready({ text: 'Real brief', caveat: 'Model-derived.' })];
+    let call = 0;
+    vi.mocked(useRemote).mockImplementation(() => responses[call++ % responses.length]);
+    render(<MemoryRouter><SelectionProvider><Overview initialization="2026-09-12T00:00:00Z"
+      lead={7} health={health} selectedState="Madhya Pradesh" /></SelectionProvider></MemoryRouter>);
+    expect(screen.getAllByRole('status').length).toBeGreaterThan(0);
+  });
 });

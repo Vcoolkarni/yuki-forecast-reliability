@@ -35,5 +35,6 @@ describe('shared navigation and selection', () => {
     view.rerender(<MemoryRouter><Shell health={mixed} initialization={demo}
       onInitialization={vi.fn()} lead={1} onLead={vi.fn()} /></MemoryRouter>);
     expect(screen.getByText(/Historical demo · September 2024/)).toBeTruthy();
+    expect(view.container.querySelector('select.run-mobile')?.textContent).toMatch(/Current · 29 Sep/);
   });
 });

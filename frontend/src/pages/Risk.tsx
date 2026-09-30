@@ -26,9 +26,11 @@ export function Risk({ initialization, lead, selectedState: selectedStateProp, a
     [initialization, previous, lead]);
   const visibleCells = useMemo(() => selectedStateProp ? geometry ? stateCells(day.data?.records || [], geometry) : [] :
     day.data?.records || [], [selectedStateProp, geometry, day.data]);
-  const visibleHotspots = useMemo(() => selectedStateProp ? geometry ? stateHotspots(hotspots.data?.hotspots || [],
-    day.data?.records || [], geometry) : [] : hotspots.data?.hotspots || [],
-    [selectedStateProp, geometry, hotspots.data, day.data]);
+  const visibleHotspots = useMemo(() => {
+    if (!hotspots.data || !day.data || hotspots.data.lead_day !== day.data.lead_day) return [];
+    return selectedStateProp ? geometry ? stateHotspots(hotspots.data.hotspots, day.data.records, geometry) : [] :
+      hotspots.data.hotspots;
+  }, [selectedStateProp, geometry, hotspots.data, day.data]);
   const ranked = useMemo(() => [...visibleCells].sort((a, b) => b.bust_probability - a.bust_probability).slice(0, 8), [visibleCells]);
   const active = visibleHotspots.find(item => item.hotspot_id === selected);
   return <div className="page"><div className="page-heading"><div><div className="eyebrow">{selectedState.toUpperCase()}</div><h1>Risk &amp; <em>Hotspots</em></h1><p>Find where the model predicts elevated forecast-error risk.</p></div></div>

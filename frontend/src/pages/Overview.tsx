@@ -32,9 +32,13 @@ export function Overview({ initialization, lead, health, selectedState: selected
   const stateBrief = useRemote(signal => api.stateBrief(initialization, selectedState, lead, signal), [initialization, selectedState, lead]);
   const visibleCells = useMemo(() => selectedStateProp ? geometry ? stateCells(day.data?.records || [], geometry) : [] :
     day.data?.records || [], [day.data, geometry, selectedStateProp]);
-  const visibleHotspots = useMemo(() => selectedStateProp ? geometry ?
-    stateHotspots(hotspots.data?.hotspots || [], day.data?.records || [], geometry) : [] :
-    hotspots.data?.hotspots || [], [hotspots.data, day.data, geometry, selectedStateProp]);
+  const visibleHotspots = useMemo(() => {
+    // Hotspots and the full grid are independent requests. Never intersect a new
+    // lead's hotspot members with an empty/stale grid while the grid is loading.
+    if (!hotspots.data || !day.data || hotspots.data.lead_day !== day.data.lead_day) return [];
+    return selectedStateProp ? geometry ? stateHotspots(hotspots.data.hotspots, day.data.records, geometry) : [] :
+      hotspots.data.hotspots;
+  }, [hotspots.data, day.data, geometry, selectedStateProp]);
   const top = useMemo(() => [...visibleCells].sort((a, b) => b.bust_probability - a.bust_probability).slice(0, 5), [visibleCells]);
   const global = summary.data?.lead_day_summaries.find(item => item.lead_day === lead);
   const current = stateDay.data && global ? { ...global, mean_bust_probability: stateDay.data.mean_bust_probability,

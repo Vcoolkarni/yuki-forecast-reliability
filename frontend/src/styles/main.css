@@ -38,4 +38,38 @@
 .sidebar-foot img{width:26.25px;height:26.25px}
 .brand{height:61.5px;margin-bottom:20.5px}
 .brand img{width:281.25px;height:96.75px;left:-72px;top:-24.75px}
+.run-mobile{display:none}
 @media(max-width:950px){.brand{width:75px;height:33px;margin-bottom:0;margin-right:25px}.brand img{width:168.75px;height:57.75px;left:-43.5px;top:-15px}}
+/* Narrow-screen hierarchy only; approved desktop rules above remain unchanged. */
+@media(max-width:800px){
+  .app-shell,.workspace{min-width:0}
+  .sidebar{flex-direction:column;align-items:flex-start;gap:8px;padding:9px 15px 11px}
+  .sidebar .brand{margin:0;width:75px;height:33px}
+  .sidebar nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%;overflow:visible}
+  .nav-link{min-width:0;min-height:44px;padding:0;justify-content:center}
+  .nav-link span{display:none}
+  .topbar{height:auto;display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:11px 16px}
+  .topbar>.init-control{width:100%;min-width:0;min-height:52px;gap:10px}
+  .topbar>.init-control:nth-child(2){order:1}
+  .topbar>.init-control:nth-child(3){order:2}
+  .topbar>.init-control span{min-width:0;flex:1}
+  .topbar>.init-control small{display:block}
+  .topbar>.init-control select{display:block;width:100%;max-width:100%;min-width:0;min-height:44px}
+  .topbar>.init-control:last-child select:not(.run-mobile){display:none}
+  .topbar>.init-control select.run-mobile{display:block}
+  .topbar>.region-search{order:3;width:100%;min-width:0;padding:8px 10px;gap:8px;line-height:1.35}
+  .topbar>.region-search svg{flex:none}
+  .topbar>.region-search span{min-width:0;overflow-wrap:anywhere}
+  .workspace main{min-width:0;padding:16px}
+  .context-row{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:18px}
+  .chips{min-width:0}
+  .day-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:100%;gap:3px}
+  .day-tabs button{min-width:0;min-height:44px;padding:6px 2px}
+  .layer-tabs button,.segmented button,.explain-select select,.comparison-panel select{min-height:40px}
+  .page-heading{flex-wrap:wrap;gap:10px}
+  .page-heading h1{font-size:30px}
+  .card-heading,.explain-select,.comparison-panel label{flex-wrap:wrap}
+  .map-legend{max-width:calc(100% - 20px)}
+  .legend-body{min-width:0}
+  .footer-note{margin:0 16px 14px}
+}
