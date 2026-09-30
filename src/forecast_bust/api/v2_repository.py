@@ -45,6 +45,7 @@ class V2Repository:
         self.polygons = {}
         self.membership = {}
         self.current_runs = {}
+        self.demo_predictions = {}
         self.current_warning = None
         self.cache = OrderedDict()
         self.lock = RLock()
@@ -76,8 +77,40 @@ class V2Repository:
                                     if contains_grid_center(geometry, float(row.latitude), float(row.longitude))}
             self._refresh_object_store(force=True)
             current_runs = self._scan_current_runs(service)
+            demo_predictions = self._scan_demo_predictions(service, frames)
             self.frames, self.polygons, self.membership, self.service = frames, polygons, membership, service
             self.current_runs = current_runs
+            self.demo_predictions = demo_predictions
+
+    def _scan_demo_predictions(self, service: V2Inference, frames: dict) -> dict:
+        """Use packaged forecast-only demo results only with exact source/model provenance."""
+        if self.source_kind != "historical_demo":
+            return {}
+        root = self.project_root / "runtime/v2_demo_predictions"
+        manifest_path = root / "manifest.json"
+        if not manifest_path.is_file():
+            return {}
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        frozen = json.loads((self.project_root / "models/v2/recommended_0p50/frozen_selection.json")
+                            .read_text(encoding="utf-8"))
+        if (manifest.get("artifact_kind") != "historical_demo_forecast_predictions"
+                or manifest.get("source_forecast_sha256") != sha256(self.source_path.read_bytes()).hexdigest()
+                or manifest.get("model_id") != service.model_id
+                or any(manifest.get(f"{name}_sha256") != frozen[f"{name}_sha256"]
+                       for name in ("classifier", "regressor", "calibrator"))
+                or set(manifest.get("runs", {})) != set(frames)):
+            raise ValueError("Packaged demo predictions do not match forecast source or frozen model")
+        runs = {}
+        for key, item in manifest["runs"].items():
+            filename = item.get("file")
+            if not isinstance(filename, str) or Path(filename).name != filename or not filename.endswith(".json.gz"):
+                raise ValueError("Invalid packaged demo prediction filename")
+            path = root / filename
+            if (item.get("records") != len(frames[key]) or not path.is_file()
+                    or sha256(path.read_bytes()).hexdigest() != item.get("sha256")):
+                raise ValueError("Packaged demo predictions failed integrity validation")
+            runs[key] = path
+        return runs
 
     def _refresh_object_store(self, force: bool = False) -> None:
         if not force and monotonic() - self.last_object_sync < 300:
@@ -144,6 +177,15 @@ class V2Repository:
                             or artifact.get("model_id") != self.service.model_id
                             or any(set(row) & TARGETS for row in artifact["records"])):
                         raise ValueError("Stored current predictions are incomplete or contain target fields")
+                    self.cache[key] = artifact
+                elif key in self.demo_predictions:
+                    with gzip.open(self.demo_predictions[key], "rt", encoding="utf-8") as handle:
+                        artifact = json.load(handle)
+                    if (len(artifact.get("records", [])) != len(self.frames[key])
+                            or artifact.get("initialization_time") != key
+                            or artifact.get("model_id") != self.service.model_id
+                            or any(set(row) & TARGETS for row in artifact["records"])):
+                        raise ValueError("Stored demo predictions are incomplete or contain target fields")
                     self.cache[key] = artifact
                 else:
                     self.cache[key] = self.service.predict_initialization(self.frames[key])

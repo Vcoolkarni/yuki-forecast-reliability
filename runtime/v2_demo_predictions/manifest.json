@@ -1,0 +1,20 @@
+{
+  "artifact_kind": "historical_demo_forecast_predictions",
+  "source_forecast_sha256": "86cf07ed99e08beabd0a82f6b1c801b42709e594af6274127c444eb80ede7eaf",
+  "model_id": "v2-recommended-0p50",
+  "classifier_sha256": "ebd70447e6bb72d43a52fb69c43a0c463a215d3276c8fe7513d656b9a2401b97",
+  "regressor_sha256": "a2ea45a7bc146e907093b4dd61853ea83f420cb95c7278dabed0f2ac28c1d1b5",
+  "calibrator_sha256": "f69545b3b9c9aaac32593316ff30b3c89cb1eee612702f1fbc8c4f69950292c3",
+  "runs": {
+    "2024-09-26T00:00:00Z": {
+      "file": "2024092600.json.gz",
+      "sha256": "4ce734ae27085229cd843571346d2e370e2c5560994ae31a5689aed29aa994fb",
+      "records": 38430
+    },
+    "2024-09-29T00:00:00Z": {
+      "file": "2024092900.json.gz",
+      "sha256": "f6ed25ce853a359b19f2e5f7baf84c06908063ad10cf4d1fd88290c4eea6be5c",
+      "records": 38430
+    }
+  }
+}

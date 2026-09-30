@@ -27,6 +27,15 @@ processed forecast, not live NOAA acquisition. The UI/API must continue to
 display its run timestamp and source kind; do not label an old bootstrap as a
 new live run.
 
+`scripts/build_render_demo_predictions.py` packages forecast-only inference
+for the two existing September 2024 historical demo initializations. This
+uses the unchanged frozen V2 model, not the 2025 test labels, and does not
+download or retrain anything. The API verifies the compressed artifacts
+against the demo forecast source and frozen model hashes before using them.
+Custom forecast feeds still run inference normally. This packaged cache
+prevents a multi-minute first inference on Render Free's limited CPU; it does
+not change probabilities.
+
 Never commit `.secrets/`, CDS credentials, `.env` files, raw GFS/GEFS GRIB,
 ERA5 downloads, training/evaluation data, logs, partial downloads, `.venv`,
 `node_modules`, or frontend build outputs. The local research data is retained.

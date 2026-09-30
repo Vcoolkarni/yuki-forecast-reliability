@@ -59,6 +59,7 @@ def test_one_entry_forecast_cache_evicts_before_building_next_run():
     repository.cache = OrderedDict({first: {"initialization_time": first}})
     repository.frames = {second: object()}
     repository.current_runs = {}
+    repository.demo_predictions = {}
 
     class Model:
         def predict_initialization(self, frame):
@@ -92,3 +93,20 @@ def test_current_run_integrity_accepts_only_git_line_ending_conversion(tmp_path)
     model = type("FrozenModel", (), {"model_id": manifest["model_id"],
                                      "features": manifest["feature_names_ordered"]})()
     assert "2026-09-29T12:00:00Z" in repository._scan_current_runs(model)
+
+
+def test_packaged_demo_predictions_match_frozen_source_and_require_no_model_rerun(monkeypatch):
+    repository = V2Repository(ROOT, cache_size=1)
+    repository.initialize()
+    if not repository.demo_predictions:
+        pytest.skip("Packaged demo predictions have not been generated")
+    key = sorted(repository.demo_predictions)[0]
+    assert len(repository.demo_predictions) == 2
+    assert len(repository.frames[key]) == 38430
+    monkeypatch.setattr(repository.service, "predict_initialization",
+                        lambda _: pytest.fail("Packaged demo must not rerun the model"))
+    artifact = repository.get(key)
+    assert artifact["initialization_time"] == key
+    assert len(artifact["records"]) == 38430
+    assert set(artifact["records"][0]).isdisjoint(
+        {"reference_precipitation", "forecast_error", "absolute_error", "is_bust"})
