@@ -1,9 +1,11 @@
 # Yuki deployment on Render
 
-The checked-in `render.yaml` defines a Free Python API web service and a free
+The checked-in `render.yaml` documents a Free Python API web service and a free
 React/Vite static site. It does not create a Cron Job or trigger NOAA
-acquisition. The Vercel files remain in place for reversibility; Render ignores
-them.
+acquisition. Render is the active production platform. The obsolete root
+Vercel configuration has been removed; its historical notes are archived in
+[DEPLOY_VERCEL.md](DEPLOY_VERCEL.md). Neither that archive nor the removal
+changes either running Render service.
 
 ## Runtime package and safety
 

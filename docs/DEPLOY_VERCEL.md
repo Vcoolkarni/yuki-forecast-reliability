@@ -1,7 +1,23 @@
-# Yuki on Vercel Services
+# Archived Vercel deployment attempt (not production)
 
-`vercel.json` uses the current Vercel **Services** configuration: `frontend`
-is the public Vite site and `yuki-site` is the FastAPI service. The API is
+Yuki's active production deployment is [Render](DEPLOY_RENDER.md). This file is
+retained solely as a record of the abandoned Vercel Services attempt; do not
+follow the historical deployment steps below for the current website.
+
+The former root `vercel.json` mapped Vite and FastAPI into Vercel Services, and
+`.vercelignore` excluded local files from Vercel CLI uploads. Their associated
+`tests/test_vercel_deployment.py` checked only that obsolete packaging. These
+three files are unused by Render and the running Yuki application, so they were
+removed from the active repository. The old `main.py` Vercel ASGI adapter is
+also unused by Render, but remains untouched under the backend-code freeze.
+Removing repository files **does not** disconnect a Vercel project's GitHub
+integration. To stop future Vercel deployments, disconnect this repository in
+that project's **Settings → Git → Connected Git Repository**.
+
+## Historical configuration notes
+
+The removed `vercel.json` used a Vercel **Services** configuration: `frontend`
+was the public Vite site and `yuki-site` was the FastAPI service. The API was
 reachable on the same deployment at `/api/*`; the V1 `/health` route and
 FastAPI documentation routes also reach the backend. Frontend deep links
 resolve to `index.html`. The backend uses the existing `requirements-web.txt`,
@@ -17,7 +33,7 @@ development-only files are excluded from that function bundle.
 2. Leave `VITE_API_BASE_URL` unset for this same-origin deployment. A custom
    value is only for separate-origin hosting. The local Vite dev server still
    defaults to `http://127.0.0.1:8000`.
-3. Do not add credentials to Git; `.gitignore` and `.vercelignore` exclude
+3. Do not add credentials to Git; `.gitignore` and the former `.vercelignore` excluded
    local secrets from Git and CLI uploads. The bundled current forecast lets the site
    start without an object store. To serve newer published runs, configure the
    existing `FORECAST_BUST_OBJECT_BUCKET` and relevant S3-compatible endpoint,
